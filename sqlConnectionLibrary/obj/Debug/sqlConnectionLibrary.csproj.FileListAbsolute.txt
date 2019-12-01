@@ -1,0 +1,5 @@
+C:\Users\israe\source\repos\sqlConnectionLibrary\sqlConnectionLibrary\bin\Debug\sqlConnectionLibrary.dll
+C:\Users\israe\source\repos\sqlConnectionLibrary\sqlConnectionLibrary\bin\Debug\sqlConnectionLibrary.pdb
+C:\Users\israe\source\repos\sqlConnectionLibrary\sqlConnectionLibrary\obj\Debug\sqlConnectionLibrary.csprojAssemblyReference.cache
+C:\Users\israe\source\repos\sqlConnectionLibrary\sqlConnectionLibrary\obj\Debug\sqlConnectionLibrary.dll
+C:\Users\israe\source\repos\sqlConnectionLibrary\sqlConnectionLibrary\obj\Debug\sqlConnectionLibrary.pdb
