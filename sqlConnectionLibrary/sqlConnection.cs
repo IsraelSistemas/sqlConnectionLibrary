@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace sqlConnectionLibrary
 {
     public class sqlConnection
     {
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-SU6PUUVF\\SQLEXPRESS;Initial Catalog=demo;Integrated Security=True");
+        SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["dataSource"].Replace("\\\\", "\\"));
 
         public bool TestConnection()
         {
