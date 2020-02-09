@@ -11,6 +11,8 @@ namespace sqlConnectionLibrary
     public class sqlConnection
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["dataSource"].Replace("\\\\", "\\"));
+        private DataTable dt;
+        private SqlDataAdapter da;
 
         public bool TestConnection()
         {
@@ -32,6 +34,53 @@ namespace sqlConnectionLibrary
             }
 
             return success;
+        }
+        
+         private SqlConnection OpenConnection()
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                try
+                {
+                    con.Open();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Something goes wrong: " + ex);
+                }
+            }
+
+            return con;
+        }
+
+        private void CloseConnection()
+        {
+            if (con.State != ConnectionState.Closed)
+            {
+                con.Close();
+            }
+        }
+
+        public DataTable ShowDataByQuery(string query)
+        {
+            dt = new DataTable();
+
+            try
+            {
+                OpenConnection();
+                da = new SqlDataAdapter(query, con);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Something goes wrong: " + ex);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+            return dt;
         }
     }
 }
